@@ -1,0 +1,63 @@
+GET http://127.0.0.1:5000
+
+###
+
+GET http://127.0.0.1:5000/books/
+
+###
+
+GET http://127.0.0.1:5000/users
+
+###
+
+GET http://127.0.0.1:5000/books/6045a3dc5a78676e787a188a
+
+###
+
+POST http://127.0.0.1:5000/books/
+Content-Type: application/json
+
+{
+    "title":"Pyjama Profit",
+    "author":"Varun Mayya",
+    "owner":"me",
+    "reader":"you"
+}
+
+###
+
+PUT http://127.0.0.1:5000/books/5ff2ef4bcb82fe0021752cf6
+Content-Type: application/json
+
+{
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "owner": "Suraj",
+    "reader": "Kestler"
+}
+
+###
+
+DELETE http://127.0.0.1:5000/books/5ff2eee7cb82fe0021752cf5
+
+###
+
+POST http://127.0.0.1:5000/users/signup
+Content-Type: application/json
+
+{
+    "username":"itachi",
+    "password":"konoha"
+}
+
+###
+
+POST http://127.0.0.1:5000/users/login
+Content-Type: application/json
+
+{
+    "username":"itachi",
+    "password":"konoha"
+}
+
+###
