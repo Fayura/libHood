@@ -9,6 +9,10 @@ const bookSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
+  genre: {
+    required: true,
+    type: Array,
+  },
   owner: {
     required: true,
     type: String,

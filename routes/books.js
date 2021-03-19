@@ -1,4 +1,5 @@
 const express = require("express");
+const tokenCheck = require("../middleware/token");
 
 //models
 const Book = require("../models/books");
@@ -12,24 +13,25 @@ applet.get("/", (req, res) => {
     }
   });
 });
-applet.post("/", (req, res) => {
+applet.post("/", tokenCheck.auth, async (req, res) => {
   console.log(req.body);
-  Book.create(req.body);
-  res.send("book added");
+  const book = await Book.create(req.body);
+  if (book) res.json(book);
+  else res.json({ status: "ACCESS DENIED" });
 });
 applet.get("/:id", (req, res) => {
   const reqId = req.params.id;
-  Book.findOne({ _id: reqId }, (err, book) => {
+  Book.findOne({ title: reqId }, (err, book) => {
     if (!err) {
       res.json(book);
     }
   });
 });
 
-applet.put("/:id", (req, res) => {
+applet.put("/:id", tokenCheck.auth, (req, res) => {
   const reqId = req.params.id;
   Book.findOneAndUpdate(
-    { _id: reqId },
+    { title: reqId },
     {
       $set: {
         title: req.body.title,
@@ -49,9 +51,9 @@ applet.put("/:id", (req, res) => {
   );
 });
 
-applet.delete("/:id", (req, res) => {
+applet.delete("/:id", tokenCheck.auth, (req, res) => {
   const reqId = req.params.id;
-  Book.findOneAndDelete({ _id: reqId }, (err, book) => {
+  Book.findOneAndDelete({ title: reqId }, (err, book) => {
     if (!err) {
       res.json(book);
     } else {

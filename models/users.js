@@ -9,6 +9,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  books: {
+    type: Array,
+    required: true,
+  },
+  reading: {
+    type: Array,
+    required: true,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

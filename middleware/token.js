@@ -4,14 +4,18 @@ module.exports.auth = async (req, res, next) => {
   const token = req.cookies.jwt;
   //   console.log(token);
   if (token) {
-    const auth = await jwt.verify(
+    jwt.verify(
       token,
-      "Its so cold outside,I'm alone,I'm alright"
+      "Its so cold outside,I'm alone,I'm alright",
+      (err, decoded) => {
+        if (err) res.redirect("users/");
+        else {
+          console.log(decoded);
+          next();
+        }
+      }
     );
-    if (auth) {
-      next();
-    } else {
-      res.send("ACCESS DENIED");
-    }
+  } else {
+    res.redirect("users/");
   }
 };

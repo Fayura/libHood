@@ -7,7 +7,7 @@ const cookier = require("cookie-parser");
 //routes
 const bookRoute = require("./routes/books");
 const userRoute = require("./routes/users");
-const tokenCheck = require("./middleware/token");
+// const tokenCheck = require("./middleware/token");
 
 //configurations
 const app = exp();
@@ -20,7 +20,7 @@ app.use(exp.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("<h1>Libooh,</h1> <h4>a neighboorhood library API</h4>");
 });
-app.use("/books", tokenCheck.auth, bookRoute);
+app.use("/books", bookRoute);
 app.use("/users", userRoute);
 
 //database
