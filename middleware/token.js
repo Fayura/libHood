@@ -8,7 +8,7 @@ module.exports.auth = async (req, res, next) => {
       token,
       "Its so cold outside,I'm alone,I'm alright",
       (err, decoded) => {
-        if (err) res.redirect("users/");
+        if (err) res.json({ errror: "unautherized access" });
         else {
           console.log(decoded);
           next();
@@ -16,6 +16,6 @@ module.exports.auth = async (req, res, next) => {
       }
     );
   } else {
-    res.redirect("users/");
+    res.json({ errror: "login first" });
   }
 };
