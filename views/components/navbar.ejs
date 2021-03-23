@@ -1,0 +1,51 @@
+<style>
+  .menuBar {
+    flex: 1;
+    width: 14rem;
+    background: var(--background-lite);
+    transition: transform 0.2s;
+    color: var(--foreground);
+  }
+  .hide {
+    transform: translateX(-14rem);
+  }
+  ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  li {
+    list-style: none;
+    padding: 2rem;
+    border: 1px solid var(--background);
+  }
+  .top,
+  .bottom {
+    width: 100%;
+  }
+  .bottom {
+    text-align: right;
+  }
+</style>
+<div class="menuBar hide">
+  <ul>
+    <div class="top">
+      <li>ALL BOOKS</li>
+      <li>MY BOOKS</li>
+    </div>
+    <div class="bottom">
+      <li>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="#00cbcb"
+          viewBox="0 0 24 24"
+        >
+          <path d="M8 9v-4l8 7-8 7v-4h-8v-6h8zm2-7v2h12v16h-12v2h14v-20h-14z" />
+        </svg>
+      </li>
+    </div>
+  </ul>
+</div>

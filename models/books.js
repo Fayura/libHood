@@ -21,6 +21,14 @@ const bookSchema = new mongoose.Schema({
     required: false,
     type: String,
   },
+  issueDate: {
+    required: false,
+    type: Date,
+  },
+  dueDate: {
+    required: false,
+    type: Date,
+  },
 });
 
 const Book = mongoose.model("Book", bookSchema);

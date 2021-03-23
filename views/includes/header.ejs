@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <title>LibHood</title>
+    <style>
+      .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--background-lite);
+      }
+      img {
+        height: 75px;
+        width: 75px;
+      }
+      .menu {
+        padding: 1rem;
+        transform: rotate(90deg);
+        transition: 0.2s;
+      }
+      .menu.active {
+        transform: rotate(0deg);
+      }
+      .theme-toggle {
+        display: flex;
+        padding: 1rem;
+      }
+      .credits {
+        background: var(--background-lite);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+      }
+      .credit-content {
+        margin: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <div class="menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="#00cbcb"
+          >
+            <path
+              d="M6 12c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"
+            />
+          </svg>
+        </div>
+        <div class="logo">
+          <img src="assets/LibHood.png" alt="logo" />
+        </div>
+        <div class="theme-toggle">
+          <%- include("../components/toggleTheme") %>
+        </div>
+      </div>
+      <%- include("../components/navbar") %>
+    </div>
+  </body>
+</html>
